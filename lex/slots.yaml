@@ -1,0 +1,10 @@
+Pollexy_Medicines:
+- value: aspirin
+- synonyms:
+  - red pills
+  value: red pill
+- synonyms:
+  - blue pills
+  value: blue pill
+checksum:
+  Pollexy_Medicines: 2ebdc570-1fc5-46f5-8dde-a3f0c2feadc7
