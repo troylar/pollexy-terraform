@@ -1,10 +1,10 @@
 RemindMedicineIntent:
   confirmationPrompt:
-    contentType: PlainText
     maxAttempts: 1
     messages:
     - content: Okay, your {FlowerType} will be ready for pickup by {PickupTime} on
         {PickupDate}.  Does this sound okay?
+      contentType: PlainText
   description: Intent to order a bouquet of flowers for pick up
   fulfillmentActivity:
     type: ReturnIntent
@@ -39,4 +39,4 @@ RemindMedicineIntent:
       - content: Pick up the {FlowerType} at what time on {PickupDate}?
         contentType: PlainText
 checksum:
-  RemindMedicineIntent: cefcc99b-2ea3-49db-9919-66f8b1e7a7af
+  RemindMedicineIntent: a18e30c3-4d7d-4210-8393-69b3263a6957

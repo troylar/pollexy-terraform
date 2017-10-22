@@ -7,23 +7,12 @@ for k in intents.keys():
     if k == 'checksum':
         continue
     intent = intents[k]
+    args = {}
+    for l in intents[k].keys():
+        args[l] = intents[k][l]
     if intents.has_key('checksum') and intents['checksum'].has_key(k):
-        resp = client.put_intent(
-             name=intent['name'],
-             description=intent['description'],
-             sampleUtterances=intent['sampleUtterances'],
-             slots=intent['slots'],
-             fulfillmentActivity=intent['fulfillmentActivity'],
-             checksum=intents['checksum'][k]
-        )
-    else:
-        resp = client.put_intent(
-             name=intent['name'],
-             description=intent['description'],
-             sampleUtterances=intent['sampleUtterances'],
-             fulfillmentActivity=intent['fulfillmentActivity'],
-             slots=intent['slots']
-        )
+        args['checksum'] = intents['checksum'][k]
+    resp = client.put_intent(**args)
     if not intents.has_key('checksum'):
         intents['checksum'] = {}
     intents['checksum'][k] = str(resp['checksum'])
