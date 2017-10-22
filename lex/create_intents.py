@@ -10,12 +10,11 @@ for k in intents.keys():
     args = {}
     for l in intents[k].keys():
         args[l] = intents[k][l]
-    if intents.has_key('checksum') and intents['checksum'].has_key(k):
+    if 'checksum' in intents and k in intents['checksum']:
         args['checksum'] = intents['checksum'][k]
     resp = client.put_intent(**args)
-    if not intents.has_key('checksum'):
+    if 'checksum' not in intents:
         intents['checksum'] = {}
     intents['checksum'][k] = str(resp['checksum'])
     with open('intents.yaml', 'w') as yaml_file:
-        yaml_file.write( yaml.dump(intents, default_flow_style=False))
-
+        yaml_file.write(yaml.dump(intents, default_flow_style=False))

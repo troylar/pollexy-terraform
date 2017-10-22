@@ -1,4 +1,4 @@
-RemindMedicineIntent:
+OrderFlowers:
   confirmationPrompt:
     maxAttempts: 1
     messages:
@@ -8,7 +8,7 @@ RemindMedicineIntent:
   description: Intent to order a bouquet of flowers for pick up
   fulfillmentActivity:
     type: ReturnIntent
-  name: RemindMedicine
+  name: OrderFlowers
   rejectionStatement:
     messages:
     - content: Okay, I will not place your order.
@@ -39,4 +39,4 @@ RemindMedicineIntent:
       - content: Pick up the {FlowerType} at what time on {PickupDate}?
         contentType: PlainText
 checksum:
-  RemindMedicineIntent: a18e30c3-4d7d-4210-8393-69b3263a6957
+  OrderFlowers: 058c5c64-dac9-48c6-b78d-862ac52d8773
