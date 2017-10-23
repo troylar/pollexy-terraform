@@ -1,20 +1,28 @@
 import yaml
 import boto3
+import os
+import time
 client = boto3.client('lex-models')
-with open("slots.yaml", 'r') as stream:
-    slots = yaml.load(stream)
-for k in slots.keys():
-    if k == 'checksum':
+for f in os.listdir('slots'):
+    config_file = os.path.join('slots', f)
+    if not config_file.endswith('yaml') and not config_file.endswith('yml'):
         continue
-    if slots.has_key('checksum') and slots['checksum'].has_key(k):
-        resp = client.put_slot_type(name=k, enumerationValues=slots[k],
-                checksum=slots['checksum'][k])
-    else:
-        resp = client.put_slot_type(name=k, enumerationValues=slots[k])
-    print resp
-    if not slots.has_key('checksum'):
-        slots['checksum'] = {}
-    slots['checksum'][k] = str(resp['checksum'])
-    with open('slots.yaml', 'w') as yaml_file:
-        yaml_file.write( yaml.dump(slots, default_flow_style=False))
-
+    with open(config_file, 'r') as stream:
+        slots = yaml.load(stream)
+    for k in slots.keys():
+        if k == 'checksum':
+            continue
+        slot = slots[k]
+        args = {}
+        for l in slot.keys():
+            args[l] = slots[k][l]
+        if 'checksum' in slots and k in slots['checksum']:
+            args['checksum'] = slots['checksum'][k]
+        print 'Creating/updating slot: {}'.format(slot['name'])
+        resp = client.put_slot_type(**args)
+        if 'checksum' not in slots:
+            slots['checksum'] = {}
+        slots['checksum'][k] = str(resp['checksum'])
+        with open(config_file, 'w') as yaml_file:
+            yaml_file.write(yaml.dump(slots, default_flow_style=False))
+        print 'Done'

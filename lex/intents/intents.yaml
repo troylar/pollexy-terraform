@@ -8,7 +8,7 @@ OrderFlowers:
   description: Intent to order a bouquet of flowers for pick up
   fulfillmentActivity:
     type: ReturnIntent
-  name: OrderFlowers
+  name: OrderFlowersTest
   rejectionStatement:
     messages:
     - content: Okay, I will not place your order.
@@ -39,4 +39,4 @@ OrderFlowers:
       - content: Pick up the {FlowerType} at what time on {PickupDate}?
         contentType: PlainText
 checksum:
-  OrderFlowers: 058c5c64-dac9-48c6-b78d-862ac52d8773
+  OrderFlowers: ee6bad42-f7e4-46af-b914-357262a9b8d2

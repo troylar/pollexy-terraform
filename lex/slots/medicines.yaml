@@ -1,0 +1,12 @@
+Medicines:
+  enumerationValues:
+  - value: aspirin
+  - synonyms:
+    - red pills
+    value: red pill
+  - synonyms:
+    - blue pills
+    value: blue pill
+  name: pollexy_medicines
+checksum:
+  Medicines: 03e0338a-012d-4cf5-91b7-41f943183a5b
