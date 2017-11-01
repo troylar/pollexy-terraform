@@ -2,10 +2,10 @@ resource "aws_dynamodb_table" "ddb_people" {
   name           = "PollexyPeople"
   read_capacity  = 20
   write_capacity = 20
-  hash_key       = "PersonName"
+  hash_key       = "person_name"
 
   attribute {
-    name = "PersonName"
+    name = "person_name"
     type = "S"
   }
 
