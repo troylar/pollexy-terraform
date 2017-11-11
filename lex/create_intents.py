@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import yaml
 import boto3
 import os

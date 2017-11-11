@@ -1,0 +1,18 @@
+PollexyEmergencyIntent:
+  confirmationPrompt:
+    maxAttempts: 1
+    messages:
+    - content: Okay, would you like me to contact your emergency contact?
+      contentType: PlainText
+  description: Intent to handle emergency request
+  name: PollexyEmergencyIntent
+  rejectionStatement:
+    messages:
+    - content: Okay, I will not contact your emergency contact.
+      contentType: PlainText
+  sampleUtterances:
+  - I need help.
+  - Something is wrong.
+  - Help please.
+checksum:
+  PollexyEmergencyIntent: d16f2ff1-1ed2-4dcf-b9b8-fced0edd7977
