@@ -1,6 +1,6 @@
 mkdir -p ~/.aws
-crudini --set ~/.aws/credentials pollexy aws_access_key_id $1
-crudini --set ~/.aws/credentials pollexy aws_secret_access_key $2
-crudini --set ~/.aws/credentials pollexy region $3
+./bin/crudini --set ~/.aws/credentials pollexy aws_access_key_id $1
+./bin/crudini --set ~/.aws/credentials pollexy aws_secret_access_key $2
+./bin/crudini --set ~/.aws/credentials pollexy region $3
 echo aws_region="$3" > ~/aws.tfvars
 
