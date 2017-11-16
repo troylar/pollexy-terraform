@@ -1,0 +1,2 @@
+REGION=$(crudini --get ~/.aws/credentials pollexy region)
+terraform destroy -var aws_region=${REGION} -state=./terraform/terraform.tfstate ./terraform
