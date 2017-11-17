@@ -1,2 +1,2 @@
-REGION=$(./bin/crudini --get ~/.aws/credentials pollexy region)
+REGION=$(crudini --get ~/.aws/credentials pollexy region)
 terraform apply -var aws_region=${REGION} -state=./terraform/terraform.tfstate ./terraform
